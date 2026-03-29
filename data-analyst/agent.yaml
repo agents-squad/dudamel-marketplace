@@ -1,4 +1,5 @@
 name: Data Analyst
+version: "0.1"
 mcpServers:
   - context-repo-mcp
 contextRepos: []

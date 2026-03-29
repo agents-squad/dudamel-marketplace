@@ -1,4 +1,5 @@
 name: Release Manager
+version: "0.1"
 mcpServers:
   - context-repo-mcp
 contextRepos: []

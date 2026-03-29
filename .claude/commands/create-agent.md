@@ -116,6 +116,7 @@ Una vez confirmado, crea todos los archivos siguiendo EXACTAMENTE la estructura 
 #### `agent.yaml`
 ```yaml
 name: {display_name}
+version: "0.1"
 mcpServers:
   - context-repo-mcp
 contextRepos: []

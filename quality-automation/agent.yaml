@@ -1,4 +1,5 @@
 name: Quality Automation
+version: "0.1"
 mcpServers:
   - context-repo-mcp
 contextRepos: []

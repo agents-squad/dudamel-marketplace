@@ -1,4 +1,5 @@
 name: Customer Success
+version: "0.1"
 mcpServers:
   - context-repo-mcp
 contextRepos: []
