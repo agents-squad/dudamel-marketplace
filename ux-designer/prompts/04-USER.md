@@ -1,45 +1,44 @@
-# Contexto del producto: Peigo
+# Contexto del producto
 
-## Que es Peigo
+> Este archivo define el contexto del producto y la organizacion.
+> Actualizalo con la informacion de tu empresa para personalizar el agente.
 
-Peigo es un neobank / super-app en Ecuador. Opera en dolares estadounidenses (USD). Servicio financiero regulado con requisitos estrictos de usabilidad, accesibilidad y confianza del usuario.
+## Sobre la organizacion
+
+{Descripcion de la empresa: que hace, en que industria opera, que mercado atiende}
 
 ## Productos y dominios
 
-- **Wallet** — cuenta digital, depositos, retiros, movimientos
-- **Pagos** — pago de servicios, recargas, QR
-- **Tarjetas** — tarjeta virtual y fisica de debito
-- **Transferencias** — entre cuentas Peigo y bancos externos
-- **Seguros** — microseguros integrados
-- **Loyalty** — puntos y recompensas
-- **Soporte** — atencion al cliente, tickets, FAQ
-- **Identidad** — KYC, verificacion, onboarding
-- **Campanas** — comunicaciones, push, promociones
+{Lista los productos/dominios que el equipo de diseno cubre, ej:}
+
+- **{Dominio 1}** — {descripcion breve}
+- **{Dominio 2}** — {descripcion breve}
+- **{Dominio 3}** — {descripcion breve}
 
 ## Plataformas
 
-- **App movil** — Android (Kotlin, Jetpack Compose) e iOS (Swift, SwiftUI) — plataforma principal
-- **Web** — aplicacion web complementaria
-- **Design system** — componentes compartidos entre plataformas, tokens de diseno
+- **App movil** — {ej. Android (Kotlin, Jetpack Compose) e iOS (Swift, SwiftUI) — plataforma principal}
+- **Web** — {ej. aplicacion web complementaria}
+- **Design system** — {ej. componentes compartidos entre plataformas, tokens de diseno}
 
 ## Requisitos de UX
 
-- **Accesibilidad**: WCAG 2.1 nivel AA minimo — contraste, tamanos de toque, lectores de pantalla
-- **Mobile-first**: la app movil es el canal principal, toda experiencia se disena primero para movil
-- **Confianza**: en fintech, cada interaccion debe transmitir seguridad (confirmaciones, feedback visual, estados claros)
-- **Simplicidad**: operaciones financieras complejas deben sentirse simples y seguras
-- **Performance percibida**: skeleton screens, transiciones suaves, feedback inmediato
+- **Accesibilidad**: {ej. WCAG 2.1 nivel AA minimo}
+- **Mobile-first**: {ej. la app movil es el canal principal}
+- **Confianza**: {ej. cada interaccion debe transmitir seguridad}
+- **Simplicidad**: {ej. operaciones complejas deben sentirse simples}
+- **Performance percibida**: {ej. skeleton screens, transiciones suaves, feedback inmediato}
 
 ## Usuarios
 
-- **Demografico**: adultos en Ecuador, 18-45 anos, diversos niveles de alfabetizacion digital
-- **Contexto**: uso predominante en movil, conectividad variable, pantallas pequenas
-- **Necesidades**: enviar/recibir dinero, pagar servicios, gestionar finanzas personales
-- **Expectativa**: experiencia tan facil como usar WhatsApp, tan confiable como un banco
+- **Demografico**: {ej. rango de edad, nivel de alfabetizacion digital}
+- **Contexto**: {ej. uso predominante en movil, conectividad variable}
+- **Necesidades**: {ej. principales tareas que realizan en el producto}
+- **Expectativa**: {ej. nivel de experiencia esperado}
 
 ## Estandares del equipo
 
-- **Design system**: fuente de verdad para componentes, colores, tipografia, spacing
-- **Herramientas**: Figma para diseno, FigJam para workshops, Maze/Hotjar para testing
-- **Proceso**: discovery → wireframes → UI → prototipo → testing → handoff → validacion post-launch
-- **Handoff**: especificaciones en Figma con tokens del design system, no valores hardcoded
+- **Design system**: {ej. fuente de verdad para componentes, colores, tipografia, spacing}
+- **Herramientas**: {ej. Figma para diseno, FigJam para workshops, Maze/Hotjar para testing}
+- **Proceso**: {ej. discovery → wireframes → UI → prototipo → testing → handoff → validacion post-launch}
+- **Handoff**: {ej. especificaciones en Figma con tokens del design system}

@@ -1,38 +1,35 @@
-# Contexto del producto: Peigo
+# Contexto del producto
 
-## Que es Peigo
+> Este archivo define el contexto del producto y la organizacion.
+> Actualizalo con la informacion de tu empresa para personalizar el agente.
 
-Peigo es un neobank / super-app en Ecuador. Opera en dolares estadounidenses (USD). Su objetivo es democratizar el acceso a servicios financieros digitales en el mercado ecuatoriano.
+## Sobre la organizacion
+
+{Descripcion de la empresa: que hace, en que industria opera, que mercado atiende}
 
 ## Stack tecnico Android
 
-- **Lenguaje**: Kotlin
-- **UI**: Jetpack Compose + Material 3 (migracion progresiva desde Views en modulos legacy)
-- **Arquitectura**: Clean Architecture con MVVM (ViewModel + StateFlow)
-- **Networking**: Retrofit + OkHttp + Kotlinx Serialization
-- **DI**: Hilt (Dagger)
-- **Async**: Coroutines + Flow
-- **Navigation**: Navigation Compose
-- **Testing**: JUnit 5 + MockK + Compose Testing + Turbine (para Flows)
-- **CI/CD**: GitHub Actions + Gradle + Firebase App Distribution
+- **Lenguaje**: {ej. Kotlin}
+- **UI**: {ej. Jetpack Compose, Material 3, Views}
+- **Arquitectura**: {ej. Clean Architecture con MVVM}
+- **Networking**: {ej. Retrofit + OkHttp}
+- **DI**: {ej. Hilt / Dagger / Koin}
+- **Async**: {ej. Coroutines + Flow}
+- **Navigation**: {ej. Navigation Compose}
+- **Testing**: {ej. JUnit 5, MockK, Compose Testing}
+- **CI/CD**: {ej. GitHub Actions, Gradle, Firebase App Distribution}
 
 ## Dominios del producto
 
-Peigo esta organizado en 9 dominios principales:
+{Lista los dominios o areas funcionales del producto, ej:}
 
-1. **Wallet** — Cuenta digital, depositos, retiros, saldo
-2. **Payments** — Pagos de servicios, recargas, QR payments
-3. **Cards** — Tarjetas virtuales y fisicas (debito)
-4. **Transfers** — Transferencias entre cuentas Peigo y a bancos externos
-5. **Insurance** — Microseguros integrados en la app
-6. **Loyalty** — Programa de puntos y recompensas
-7. **Support** — Atencion al cliente, tickets, FAQ
-8. **Identity** — KYC, verificacion de identidad, onboarding
-9. **Campaigns** — Comunicaciones, push notifications, promociones
+1. {Dominio 1} — {descripcion breve}
+2. {Dominio 2} — {descripcion breve}
+3. {Dominio 3} — {descripcion breve}
 
 ## Estandares del equipo
 
-- **Feature lifecycle**: Discovery → Definition (PRD) → Design → Development → QA → Release → Measure
-- **Branching**: trunk-based development con feature flags
-- **PR process**: al menos 1 review, CI verde, linked to ticket
-- **Environments**: dev → staging → production
+- **Feature lifecycle**: {ej. Discovery → Definition → Design → Development → QA → Release → Measure}
+- **Branching**: {ej. trunk-based development con feature flags}
+- **PR process**: {ej. al menos 1 review, CI verde, linked to ticket}
+- **Environments**: {ej. dev → staging → production}

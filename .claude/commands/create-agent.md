@@ -67,12 +67,11 @@ Pregunta al usuario:
 
 Pregunta al usuario:
 
-> **¿Este agente trabaja con el stack estándar de Peigo o tiene un stack/contexto específico?**
+> **¿Este agente trabaja con un stack técnico o es un agente no técnico?**
 
 Opciones:
-1. **Stack estándar de Peigo** — Usa el contexto por defecto (Node.js, TypeScript, PostgreSQL, AWS, etc.)
-2. **Stack personalizado** — El usuario define las tecnologías y contexto
-3. **No técnico** — El agente no trabaja directamente con código (ej. growth, compliance)
+1. **Stack técnico** — El usuario define las tecnologías y contexto relevantes
+2. **No técnico** — El agente no trabaja directamente con código (ej. growth, compliance)
 
 Si elige personalizado, pide los detalles del stack.
 
@@ -204,9 +203,9 @@ Listar los archivos disponibles en un repositorio de contexto.
 
 #### `prompts/04-USER.md`
 Adapta según el paso 4:
-- Si eligió stack estándar, usa el contexto de Peigo similar a los demás agentes pero adaptado al área
-- Si eligió personalizado, usa lo que proporcionó
-- Si no es técnico, adapta el contexto al dominio del agente
+- Si eligió stack técnico, genera un template con placeholders para las tecnologías que proporcionó, siguiendo el formato de los demás agentes
+- Si no es técnico, adapta el contexto al dominio del agente con placeholders genéricos
+- En ambos casos, usa el formato de plantilla genérica con secciones como "Sobre la organizacion", "Dominios del producto", "Estandares del equipo" con contenido en formato {placeholder}
 
 #### `prompts/05-IDENTITY.md`
 Estructura estándar:

@@ -1,50 +1,47 @@
-# Contexto del producto: Peigo
+# Contexto del producto
 
-## Que es Peigo
+> Este archivo define el contexto del producto y la organizacion.
+> Actualizalo con la informacion de tu empresa para personalizar el agente.
 
-Peigo es un neobank / super-app en Ecuador. Opera en dolares estadounidenses (USD). Su objetivo es democratizar el acceso a servicios financieros digitales en el mercado ecuatoriano.
+## Sobre la organizacion
+
+{Descripcion de la empresa: que hace, en que industria opera, que mercado atiende}
 
 ## Dominios del producto
 
-Peigo esta organizado en 9 dominios principales:
+{Lista los dominios o areas funcionales del producto, ej:}
 
-1. **Wallet** — Cuenta digital, depositos, retiros, saldo
-2. **Payments** — Pagos de servicios, recargas, QR payments
-3. **Cards** — Tarjetas virtuales y fisicas (debito)
-4. **Transfers** — Transferencias entre cuentas Peigo y a bancos externos
-5. **Insurance** — Microseguros integrados en la app
-6. **Loyalty** — Programa de puntos y recompensas
-7. **Support** — Atencion al cliente, tickets, FAQ
-8. **Identity** — KYC, verificacion de identidad, onboarding
-9. **Campaigns** — Comunicaciones, push notifications, promociones
+1. {Dominio 1} — {descripcion breve}
+2. {Dominio 2} — {descripcion breve}
+3. {Dominio 3} — {descripcion breve}
 
 ## Segmentos de usuarios
 
-- **Unbanked** — Primera cuenta financiera digital
-- **Underbanked** — Tienen cuenta bancaria basica pero buscan mejor experiencia digital
-- **Digital-first** — Jovenes que prefieren todo desde el celular
-- **Merchants** — Pequenos negocios que aceptan pagos con Peigo
-- **Remittance receivers** — Reciben dinero del exterior
+{Define los segmentos de usuarios de tu producto, ej:}
+
+- **{Segmento 1}** — {descripcion, necesidades clave}
+- **{Segmento 2}** — {descripcion, necesidades clave}
+- **{Segmento 3}** — {descripcion, necesidades clave}
 
 ## KPIs principales
 
-- **Activation**: tasa de registro completado, first transaction rate, time to first value
-- **Engagement**: MAU/DAU, transacciones por usuario, session frequency
-- **Transactions**: volumen total, ticket promedio, mix por tipo de transaccion
-- **Revenue**: revenue per user, interchange fees, float income
-- **Retention**: churn rate, retention curves (D7, D30, D90)
-- **Unit economics**: LTV, CAC, LTV/CAC ratio, payback period
+- **Activation**: {ej. tasa de registro completado, first transaction rate, time to first value}
+- **Engagement**: {ej. MAU/DAU, acciones por usuario, session frequency}
+- **Transactions**: {ej. volumen total, ticket promedio, mix por tipo}
+- **Revenue**: {ej. revenue per user, fees, income streams}
+- **Retention**: {ej. churn rate, retention curves (D7, D30, D90)}
+- **Unit economics**: {ej. LTV, CAC, LTV/CAC ratio, payback period}
 
 ## Growth model
 
-- **Acquisition**: organic (ASO, referrals) + paid (digital ads, partnerships)
-- **Activation**: onboarding optimizado, time to first value < 5 min
-- **Retention**: transactional hooks (pagos recurrentes, recargas), loyalty program
-- **Revenue**: interchange fees, float income, premium features
-- **Referral**: programa de referidos con incentivos bilaterales
+- **Acquisition**: {ej. organic (ASO, referrals) + paid (digital ads, partnerships)}
+- **Activation**: {ej. onboarding optimizado, time to first value < 5 min}
+- **Retention**: {ej. transactional hooks, loyalty program}
+- **Revenue**: {ej. principales fuentes de ingreso}
+- **Referral**: {ej. programa de referidos con incentivos bilaterales}
 
 ## Estandares del equipo
 
-- **Feature lifecycle**: Discovery → Definition (PRD) → Design → Development → QA → Release → Measure
-- **Experimentation**: hipotesis → diseno → implementacion → analisis → decision (ship/iterate/kill)
-- **Reporting**: metricas semanales + deep dives mensuales
+- **Feature lifecycle**: {ej. Discovery → Definition → Design → Development → QA → Release → Measure}
+- **Experimentation**: {ej. hipotesis → diseno → implementacion → analisis → decision (ship/iterate/kill)}
+- **Reporting**: {ej. metricas semanales + deep dives mensuales}

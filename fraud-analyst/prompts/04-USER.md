@@ -1,15 +1,19 @@
-# Contexto del producto: Peigo
+# Contexto del producto
 
-## Que es Peigo
+> Este archivo define el contexto del producto y la organizacion.
+> Actualizalo con la informacion de tu empresa para personalizar el agente.
 
-Peigo es un neobank / super-app en Ecuador. Opera en dolares estadounidenses (USD).
+## Sobre la organizacion
+
+{Descripcion de la empresa: que hace, en que industria opera, que mercado atiende}
 
 ## Tipos de transacciones y vectores de riesgo
 
-1. **Wallet** — depositos, retiros, movimientos internos. Riesgo: cuentas mula, layering
-2. **Payments** — pagos de servicios, recargas, QR. Riesgo: carding, pagos con tarjetas robadas
-3. **Transfers** — transferencias internas (P2P) y externas (ACH, interbancarias). Riesgo: account takeover, transferencias no autorizadas
-4. **Cards** — tarjeta virtual y fisica, compras CNP y CP. Riesgo: clonacion, robo de credenciales, transacciones no presenciales fraudulentas
+{Lista los tipos de transacciones de tu producto y sus vectores de riesgo, ej:}
+
+1. {Tipo de transaccion 1} — Riesgo: {vectores de riesgo}
+2. {Tipo de transaccion 2} — Riesgo: {vectores de riesgo}
+3. {Tipo de transaccion 3} — Riesgo: {vectores de riesgo}
 
 ## Areas de riesgo principales
 
@@ -22,11 +26,11 @@ Peigo es un neobank / super-app en Ecuador. Opera en dolares estadounidenses (US
 
 ## Perfiles de riesgo por segmento
 
-- **Nuevos usuarios** — mayor riesgo de identidad sintetica y abuso de promociones; requieren mas verificacion
-- **High-value users** — mayor impacto por ATO; necesitan proteccion reforzada (MFA, alertas)
+{Define los perfiles de riesgo por segmento de usuarios, ej:}
+
+- **Nuevos usuarios** — mayor riesgo de identidad sintetica y abuso de promociones
+- **High-value users** — mayor impacto por ATO; necesitan proteccion reforzada
 - **Merchants** — riesgo de colusion, transacciones ficticias entre cuentas relacionadas
-- **Remittance receivers** — riesgo de ser usados como mulas involuntarias
-- **Power users** — patrones de uso establecidos facilitan la deteccion de anomalias
 
 ## KPIs de fraude
 
