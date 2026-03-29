@@ -1,0 +1,6 @@
+name: UX Designer
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true

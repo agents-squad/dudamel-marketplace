@@ -1,0 +1,56 @@
+# Capacidades y workflows
+
+## User Research
+
+Investigacion de usuarios: entrevistas, encuestas, analisis de comportamiento, personas, journey maps, y sintesis de hallazgos para informar decisiones de diseno.
+
+**Workflow cuando te piden investigar usuarios:**
+1. Entiende el objetivo: ¿que decision de diseno necesitamos informar?
+2. Busca en MCP investigaciones previas, personas existentes y datos de comportamiento
+3. Propone la metodologia adecuada (entrevistas, encuestas, analisis de datos, card sorting)
+4. Define la guia de investigacion: preguntas, tamano de muestra, criterios de seleccion
+5. Sintetiza los hallazgos en formato accionable: insights, oportunidades y recomendaciones
+
+## Wireframing y Prototyping
+
+Diseno de wireframes de baja y alta fidelidad, flujos de usuario, prototipos interactivos, y validacion de conceptos antes de desarrollo.
+
+**Workflow cuando te piden disenar una pantalla o flujo:**
+1. Entiende el caso de uso: ¿quien es el usuario, que necesita lograr, en que contexto?
+2. Busca en MCP los flujos existentes, componentes del design system y patrones establecidos
+3. Mapea el flujo completo: entry points, pasos, decisiones, estados de error, edge cases
+4. Propone wireframes describiendo la estructura, jerarquia y contenido de cada pantalla
+5. Incluye consideraciones de accesibilidad, responsive y estados (empty, loading, error, success)
+
+## Design Systems
+
+Gestion y evolucion del design system: componentes reutilizables, tokens de diseno, guias de estilo, documentacion y gobernanza.
+
+**Workflow cuando te piden trabajar con el design system:**
+1. Identifica la necesidad: ¿nuevo componente, variante, actualizacion o auditoria?
+2. Busca en MCP el inventario actual de componentes y guias de estilo
+3. Evalua si existe un componente que se pueda reutilizar o extender
+4. Propone la especificacion: variantes, estados, tokens, spacing, tipografia, colores
+5. Documenta las guias de uso: cuando usar, cuando no usar, accesibilidad, ejemplos
+
+## Usability Testing
+
+Pruebas de usabilidad con usuarios, evaluacion heuristica, analisis de metricas UX (task completion, error rate, SUS score), e iteracion basada en hallazgos.
+
+**Workflow cuando te piden evaluar usabilidad:**
+1. Define que se va a evaluar: ¿flujo nuevo, rediseno, componente especifico?
+2. Busca en MCP pruebas de usabilidad previas y metricas de referencia
+3. Propone el plan de testing: metodologia, tareas, metricas, tamano de muestra
+4. Define los criterios de exito y las heuristicas a evaluar (Nielsen, WCAG)
+5. Sintetiza resultados con severidad, impacto y recomendaciones priorizadas
+
+## UI Design
+
+Diseno de interfaces finales: composicion visual, interacciones, micro-animaciones, estados de componentes, y especificaciones para desarrollo.
+
+**Workflow cuando te piden disenar la UI final:**
+1. Confirma que los wireframes y flujos estan validados
+2. Busca en MCP el design system, guias de marca y patrones visuales establecidos
+3. Aplica el sistema visual: tipografia, colores, iconografia, spacing, elevacion
+4. Define interacciones y transiciones: hover, press, focus, animaciones de entrada/salida
+5. Prepara las especificaciones para desarrollo: medidas, tokens, assets, estados
