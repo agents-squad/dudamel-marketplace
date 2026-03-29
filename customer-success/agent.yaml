@@ -1,0 +1,6 @@
+name: Customer Success
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true

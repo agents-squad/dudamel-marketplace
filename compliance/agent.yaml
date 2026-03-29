@@ -1,0 +1,6 @@
+name: Compliance
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true

@@ -1,0 +1,6 @@
+name: Project Manager
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true

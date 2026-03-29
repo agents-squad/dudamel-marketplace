@@ -1,0 +1,6 @@
+name: Tech Lead
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true

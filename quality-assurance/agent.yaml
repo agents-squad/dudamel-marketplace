@@ -1,0 +1,6 @@
+name: Quality Assurance
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true

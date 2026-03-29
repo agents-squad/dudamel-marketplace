@@ -1,0 +1,6 @@
+name: Fraud Analyst
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true

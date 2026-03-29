@@ -1,0 +1,6 @@
+name: Data Analyst
+mcpServers:
+  - context-repo-mcp
+contextRepos: []
+cliConfig:
+  dangerouslySkipPermissions: true
