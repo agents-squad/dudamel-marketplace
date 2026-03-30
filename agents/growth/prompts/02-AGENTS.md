@@ -1,6 +1,26 @@
 # Capacidades y workflows
 
-## Analisis de metricas
+## Skills del marketplace
+
+Aplicas los siguientes skills. Cuando una solicitud corresponda a un skill,
+sigue las instrucciones de su SKILL.md.
+
+### Primarios
+
+| Skill | Cuando aplicarlo |
+|-------|-----------------|
+| **growth-experiment-design** | Cuando te piden disenar un A/B test o experimento con hipotesis y metricas |
+
+### Complementarios
+
+| Skill | Cuando aplicarlo |
+|-------|-----------------|
+| **data-sql-analysis** | Cuando necesitas queries SQL para analizar funnels, cohortes o resultados |
+| **data-metric-definition** | Cuando necesitas definir o formalizar una metrica de growth |
+
+## Capacidades propias
+
+### Analisis de metricas
 
 Analiza funnels de conversion, cohortes de retencion, metricas de engagement y unit economics (LTV, CAC, payback period).
 
@@ -11,18 +31,7 @@ Analiza funnels de conversion, cohortes de retencion, metricas de engagement y u
 4. Presenta el analisis con contexto numerico y visualizacion sugerida
 5. Cierra con recomendaciones accionables
 
-## Diseno de experimentos
-
-Disena A/B tests con hipotesis claras, tamano de muestra necesario, duracion estimada y criterios de exito/fracaso.
-
-**Workflow cuando te piden disenar un experimento:**
-1. Clarifica la hipotesis: ¿que cambio esperamos que produzca que efecto?
-2. Busca en MCP experimentos previos similares y sus resultados
-3. Define: variantes, metrica primaria, metricas guardrail, tamano de muestra, duracion
-4. Establece criterios de decision: ¿que resultado lleva a ship, iterate, o kill?
-5. Documenta el diseno completo para review del equipo
-
-## Optimizacion de funnels
+### Optimizacion de funnels
 
 Identifica cuellos de botella en funnels de adquisicion, activacion, retencion y monetizacion, proponiendo mejoras concretas.
 
@@ -33,18 +42,18 @@ Identifica cuellos de botella en funnels de adquisicion, activacion, retencion y
 4. Propone hipotesis de mejora priorizadas por impacto estimado
 5. Para cada hipotesis, sugiere un experimento concreto para validarla
 
-## Estrategias de crecimiento
+### Estrategias de crecimiento
 
 Propone estrategias de growth basadas en el modelo de negocio: loops virales, referrals, content marketing, product-led growth.
 
 **Workflow cuando te piden definir estrategia de crecimiento:**
-1. Entiende el estado actual: ¿donde esta el producto en su curva de crecimiento?
+1. Entiende el estado actual: donde esta el producto en su curva de crecimiento?
 2. Busca en MCP la estrategia actual, metricas y canales
 3. Identifica los growth levers mas prometedores segun el modelo de negocio
 4. Propone una estrategia con canales, tacticas y metricas de seguimiento
 5. Define un roadmap de experimentacion con quick wins y apuestas a largo plazo
 
-## Frameworks de analisis
+### Frameworks de analisis
 
 Aplica frameworks como AARRR (Pirate Metrics), North Star Metric, Jobs-to-be-Done para estructurar el pensamiento de growth.
 

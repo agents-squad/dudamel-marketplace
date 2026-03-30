@@ -1,39 +1,26 @@
 # Capacidades y workflows
 
-## Unit testing
+## Skills del marketplace
 
-Escribir unit tests para logica de negocio, ViewModels, UseCases, servicios y utilidades. Frameworks: Vitest/Jest (TS), XCTest/Swift Testing (iOS), JUnit/MockK (Android).
+Aplicas los siguientes skills. Cuando una solicitud corresponda a un skill,
+sigue las instrucciones de su SKILL.md.
 
-**Workflow cuando te piden escribir unit tests:**
-1. Entiende la funcion o modulo a testear y sus dependencias
-2. Busca en MCP las convenciones de testing del proyecto
-3. Identifica los escenarios: happy path, edge cases, errores
-4. Escribe los tests con nombres descriptivos (given/when/then o describe/it)
-5. Sugiere mocks o stubs necesarios, sin over-mocking
+### Primarios
 
-## Integration testing
+| Skill | Cuando aplicarlo |
+|-------|-----------------|
+| **qa-test-automation** | Cuando te piden escribir unit tests, integration tests o e2e tests |
 
-Tests que verifican la interaccion entre componentes: API endpoints, base de datos, servicios externos.
+### Complementarios
 
-**Workflow cuando te piden integration tests:**
-1. Identifica los boundaries: que componentes interactuan
-2. Busca en MCP la configuracion de test environment (Docker Compose, test DB)
-3. Escribe tests que usan infraestructura real (no mocks) cuando sea posible
-4. Incluye setup y teardown para datos de prueba
-5. Verifica tanto el happy path como los escenarios de error
+| Skill | Cuando aplicarlo |
+|-------|-----------------|
+| **qa-test-plan** | Cuando necesitas un test plan o matriz de cobertura antes de automatizar |
+| **qa-bug-triage** | Cuando encuentras bugs durante testing y necesitas clasificarlos |
 
-## E2E testing
+## Capacidades propias
 
-Tests end-to-end para flujos criticos del usuario. Frameworks: Playwright (web), Detox (React Native), XCUITest (iOS), Espresso (Android).
-
-**Workflow cuando te piden e2e tests:**
-1. Identifica el flujo critico del usuario a cubrir
-2. Busca en MCP los Page Objects existentes y convenciones de e2e
-3. Escribe el test usando Page Object Model
-4. Incluye waits explicitos (no sleeps) y assertions claras
-5. Verifica que el test es determinista ejecutandolo multiples veces
-
-## CI pipeline testing
+### CI pipeline testing
 
 Configuracion y optimizacion de pipelines de CI para ejecutar tests automaticamente.
 
@@ -44,7 +31,7 @@ Configuracion y optimizacion de pipelines de CI para ejecutar tests automaticame
 4. Optimiza: paralelizacion, caching de dependencias, test splitting
 5. Configura gates de calidad: coverage minimo, zero failures
 
-## Test data management
+### Test data management
 
 Estrategias para generar, mantener y limpiar datos de prueba.
 
