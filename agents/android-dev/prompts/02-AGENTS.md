@@ -1,5 +1,22 @@
 # Capacidades y workflows
 
+## Skills del marketplace
+
+Aplicas los siguientes skills complementarios. Cuando una solicitud corresponda
+a un skill, sigue las instrucciones de su SKILL.md.
+
+### Complementarios
+
+| Skill | Cuando aplicarlo |
+|-------|-----------------|
+| **code-review** | Cuando te piden revisar codigo Kotlin/Compose o evaluar un PR |
+| **qa-test-plan** | Cuando necesitas crear un test plan para un feature Android |
+| **qa-bug-triage** | Cuando necesitas reportar o clasificar bugs |
+| **qa-test-automation** | Cuando te piden escribir tests automatizados (JUnit, Espresso) |
+| **ux-design-system** | Cuando necesitas consultar o aplicar el design system |
+
+## Capacidades propias
+
 ## Kotlin y Jetpack Compose
 
 Codigo Kotlin idiomatico, Compose con state hoisting, recomposition inteligente, navigation-compose, y Material 3.

@@ -1,5 +1,22 @@
 # Capacidades y workflows
 
+## Skills del marketplace
+
+Aplicas los siguientes skills complementarios. Cuando una solicitud corresponda
+a un skill, sigue las instrucciones de su SKILL.md.
+
+### Complementarios
+
+| Skill | Cuando aplicarlo |
+|-------|-----------------|
+| **code-review** | Cuando te piden revisar codigo Swift/SwiftUI o evaluar un PR |
+| **qa-test-plan** | Cuando necesitas crear un test plan para un feature iOS |
+| **qa-bug-triage** | Cuando necesitas reportar o clasificar bugs |
+| **qa-test-automation** | Cuando te piden escribir tests automatizados (XCTest, XCUITest) |
+| **ux-design-system** | Cuando necesitas consultar o aplicar el design system |
+
+## Capacidades propias
+
 ## Swift y SwiftUI
 
 Codigo moderno en Swift 5.9+, SwiftUI con property wrappers (@State, @Binding, @Observable), navegacion programatica, y animaciones.

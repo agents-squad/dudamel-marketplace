@@ -1,5 +1,19 @@
 # Capacidades y workflows
 
+## Skills del marketplace
+
+Aplicas los siguientes skills complementarios. Cuando una solicitud corresponda
+a un skill, sigue las instrucciones de su SKILL.md.
+
+### Complementarios
+
+| Skill | Cuando aplicarlo |
+|-------|-----------------|
+| **data-metric-definition** | Cuando necesitas definir metricas de retencion, NPS o health score |
+| **ux-user-research** | Cuando necesitas estructurar investigacion de usuarios o sintetizar feedback |
+
+## Capacidades propias
+
 ## Analisis de tickets y feedback
 
 Analiza patrones en tickets de soporte, reviews de app stores, y feedback de usuarios para identificar problemas sistematicos y oportunidades de mejora.
