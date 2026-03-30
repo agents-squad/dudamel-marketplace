@@ -1,0 +1,11 @@
+name: "Fraud Analyst Bundle"
+description: "Agente Fraud Analyst con skills de diseño de reglas, investigación de fraude, revisión regulatoria y análisis SQL"
+version: "0.1"
+includes:
+  agents:
+    - fraud-analyst
+  skills:
+    - fraud-rule-design
+    - fraud-investigation
+    - compliance-regulatory-review
+    - data-sql-analysis

@@ -1,0 +1,9 @@
+name: "Data Analyst Bundle"
+description: "Agente Data Analyst con skills de análisis SQL y definición de métricas"
+version: "0.1"
+includes:
+  agents:
+    - data-analyst
+  skills:
+    - data-sql-analysis
+    - data-metric-definition

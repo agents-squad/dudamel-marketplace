@@ -1,0 +1,10 @@
+name: "Compliance Bundle"
+description: "Agente Compliance con skills de revisión regulatoria, preparación de auditorías y revisión de arquitectura de seguridad"
+version: "0.1"
+includes:
+  agents:
+    - compliance
+  skills:
+    - compliance-regulatory-review
+    - compliance-audit-preparation
+    - security-architecture-review

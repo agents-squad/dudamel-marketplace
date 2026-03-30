@@ -1,0 +1,12 @@
+name: "Architecture Bundle"
+description: "Agente Architecture con skills de diseño de sistemas, ADRs, APIs, modelado de datos y trade-offs"
+version: "0.1"
+includes:
+  agents:
+    - architecture
+  skills:
+    - architecture-system-design
+    - architecture-adr
+    - architecture-api-design
+    - architecture-data-modeling
+    - architecture-trade-off-analysis

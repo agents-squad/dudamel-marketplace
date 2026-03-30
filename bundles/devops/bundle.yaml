@@ -1,0 +1,12 @@
+name: "DevOps Bundle"
+description: "Agente DevOps con skills de CI/CD, infraestructura, observabilidad, respuesta a incidentes y gestión de vulnerabilidades"
+version: "0.1"
+includes:
+  agents:
+    - devops
+  skills:
+    - devops-ci-cd
+    - devops-infrastructure
+    - devops-observability
+    - devops-incident-response
+    - security-vulnerability-management

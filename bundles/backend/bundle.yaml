@@ -1,0 +1,12 @@
+name: "Backend Bundle"
+description: "Agente Backend con skills de implementación de APIs, microservicios, diseño de APIs, modelado de datos y CI/CD"
+version: "0.1"
+includes:
+  agents:
+    - backend
+  skills:
+    - backend-api-implementation
+    - backend-microservices
+    - architecture-api-design
+    - architecture-data-modeling
+    - devops-ci-cd

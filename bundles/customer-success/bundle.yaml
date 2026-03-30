@@ -1,0 +1,9 @@
+name: "Customer Success Bundle"
+description: "Agente Customer Success con skills de definición de métricas e investigación de usuarios"
+version: "0.1"
+includes:
+  agents:
+    - customer-success
+  skills:
+    - data-metric-definition
+    - ux-user-research

@@ -1,0 +1,9 @@
+name: "Release Manager Bundle"
+description: "Agente Release Manager con skills de release management y CI/CD"
+version: "0.1"
+includes:
+  agents:
+    - release-manager
+  skills:
+    - product-release-management
+    - devops-ci-cd

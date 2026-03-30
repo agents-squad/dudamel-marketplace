@@ -1,0 +1,10 @@
+name: "Project Manager Bundle"
+description: "Agente Project Manager con skills de PRD writing, user stories y análisis de trade-offs"
+version: "0.1"
+includes:
+  agents:
+    - project-manager
+  skills:
+    - product-prd-writing
+    - product-user-story
+    - architecture-trade-off-analysis

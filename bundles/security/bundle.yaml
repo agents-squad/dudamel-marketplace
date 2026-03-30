@@ -1,0 +1,11 @@
+name: "Security Bundle"
+description: "Agente Security con skills de threat modeling, revisión de código seguro, gestión de vulnerabilidades y revisión de arquitectura"
+version: "0.1"
+includes:
+  agents:
+    - security
+  skills:
+    - security-threat-modeling
+    - security-secure-code-review
+    - security-vulnerability-management
+    - security-architecture-review

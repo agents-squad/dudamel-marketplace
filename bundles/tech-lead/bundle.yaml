@@ -1,0 +1,11 @@
+name: "Tech Lead Bundle"
+description: "Agente Tech Lead con skills de code review, deuda técnica y decisiones arquitectónicas"
+version: "0.1"
+includes:
+  agents:
+    - tech-lead
+  skills:
+    - code-review
+    - code-tech-debt
+    - architecture-adr
+    - architecture-trade-off-analysis

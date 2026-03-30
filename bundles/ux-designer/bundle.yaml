@@ -1,0 +1,9 @@
+name: "UX Designer Bundle"
+description: "Agente UX Designer con skills de investigación de usuarios y design system"
+version: "0.1"
+includes:
+  agents:
+    - ux-designer
+  skills:
+    - ux-user-research
+    - ux-design-system

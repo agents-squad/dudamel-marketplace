@@ -1,0 +1,10 @@
+name: "Growth Bundle"
+description: "Agente Growth con skills de diseño de experimentos, análisis SQL y definición de métricas"
+version: "0.1"
+includes:
+  agents:
+    - growth
+  skills:
+    - growth-experiment-design
+    - data-sql-analysis
+    - data-metric-definition
