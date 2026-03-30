@@ -5,54 +5,158 @@ agents:
   - slug: android-dev
     name: Android-Dev
     version: "0.2"
+    skills:
+      complementary:
+        - code-review
+        - qa-test-plan
+        - qa-bug-triage
+        - qa-test-automation
+        - ux-design-system
   - slug: architecture
     name: Architecture
     version: "0.2"
+    skills:
+      primary:
+        - architecture-system-design
+        - architecture-adr
+        - architecture-api-design
+        - architecture-data-modeling
+        - architecture-trade-off-analysis
   - slug: backend
     name: Backend
     version: "0.2"
+    skills:
+      primary:
+        - backend-api-implementation
+        - backend-microservices
+      complementary:
+        - architecture-api-design
+        - architecture-data-modeling
+        - devops-ci-cd
   - slug: compliance
     name: Compliance
     version: "0.2"
+    skills:
+      primary:
+        - compliance-regulatory-review
+        - compliance-audit-preparation
+      complementary:
+        - security-architecture-review
   - slug: customer-success
     name: Customer Success
     version: "0.2"
+    skills:
+      complementary:
+        - data-metric-definition
+        - ux-user-research
   - slug: data-analyst
     name: Data Analyst
     version: "0.2"
+    skills:
+      primary:
+        - data-sql-analysis
+        - data-metric-definition
   - slug: devops
     name: Devops
     version: "0.2"
+    skills:
+      primary:
+        - devops-ci-cd
+        - devops-infrastructure
+        - devops-observability
+        - devops-incident-response
+      complementary:
+        - security-vulnerability-management
   - slug: fraud-analyst
     name: Fraud Analyst
     version: "0.2"
+    skills:
+      primary:
+        - fraud-rule-design
+        - fraud-investigation
+      complementary:
+        - compliance-regulatory-review
+        - data-sql-analysis
   - slug: growth
     name: Growth
     version: "0.2"
+    skills:
+      primary:
+        - growth-experiment-design
+      complementary:
+        - data-sql-analysis
+        - data-metric-definition
   - slug: ios-dev
     name: iOS-Dev
     version: "0.1"
+    skills:
+      complementary:
+        - code-review
+        - qa-test-plan
+        - qa-bug-triage
+        - qa-test-automation
+        - ux-design-system
   - slug: project-manager
     name: Project Manager
     version: "0.1"
+    skills:
+      primary:
+        - product-prd-writing
+        - product-user-story
+      complementary:
+        - architecture-trade-off-analysis
   - slug: quality-assurance
     name: Quality Assurance
     version: "0.1"
+    skills:
+      primary:
+        - qa-test-plan
+        - qa-bug-triage
+      complementary:
+        - qa-test-automation
   - slug: quality-automation
     name: Quality Automation
     version: "0.1"
+    skills:
+      primary:
+        - qa-test-automation
+      complementary:
+        - qa-test-plan
+        - qa-bug-triage
   - slug: release-manager
     name: Release Manager
     version: "0.1"
+    skills:
+      primary:
+        - product-release-management
+      complementary:
+        - devops-ci-cd
   - slug: security
     name: Security
     version: "0.1"
+    skills:
+      primary:
+        - security-threat-modeling
+        - security-secure-code-review
+        - security-vulnerability-management
+        - security-architecture-review
   - slug: tech-lead
     name: Tech Lead
     version: "0.1"
+    skills:
+      primary:
+        - code-review
+        - code-tech-debt
+      complementary:
+        - architecture-adr
+        - architecture-trade-off-analysis
   - slug: ux-designer
     name: UX Designer
     version: "0.1"
+    skills:
+      primary:
+        - ux-user-research
+        - ux-design-system
 
 skills:
   # code domain
