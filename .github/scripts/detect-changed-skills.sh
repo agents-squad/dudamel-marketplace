@@ -12,7 +12,7 @@ changed_skills=()
 dirs=$(git diff --name-only "$FROM_REF" "$TO_REF" \
   | grep '^skills/' \
   | cut -d'/' -f2 \
-  | sort -u)
+  | sort -u) || true
 
 for dir in $dirs; do
   # Skip dotfiles (e.g. .gitkeep)
@@ -23,4 +23,4 @@ for dir in $dirs; do
   fi
 done
 
-echo "${changed_skills[*]}"
+echo "${changed_skills[*]:-}"

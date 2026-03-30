@@ -12,7 +12,7 @@ changed_agents=()
 dirs=$(git diff --name-only "$FROM_REF" "$TO_REF" \
   | grep '^agents/' \
   | cut -d'/' -f2 \
-  | sort -u)
+  | sort -u) || true
 
 for dir in $dirs; do
   # Only include if the directory has an agent.yaml
@@ -21,4 +21,4 @@ for dir in $dirs; do
   fi
 done
 
-echo "${changed_agents[*]}"
+echo "${changed_agents[*]:-}"
