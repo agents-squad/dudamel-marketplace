@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dudamel.dev/schemas/agent.schema.json",
+  "title": "Agent",
+  "description": "Schema for agent.yaml in the Dudamel Agents Marketplace",
+  "type": "object",
+  "required": ["name", "version"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name of the agent"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Semver-simplified version (MAJOR.MINOR)"
+    },
+    "mcpServers": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of MCP server names the agent uses"
+    },
+    "contextRepos": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of context repository identifiers"
+    },
+    "cliConfig": {
+      "type": "object",
+      "properties": {
+        "dangerouslySkipPermissions": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

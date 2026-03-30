@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dudamel.dev/schemas/skill.schema.json",
+  "title": "Skill",
+  "description": "Schema for SKILL.md YAML frontmatter in the Dudamel Agents Marketplace",
+  "type": "object",
+  "required": ["name", "description", "version"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      "description": "Skill identifier in kebab-case with domain prefix (e.g. ios-code-review)"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of what the skill does"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Semver-simplified version (MAJOR.MINOR)"
+    },
+    "disable-model-invocation": {
+      "type": "boolean",
+      "description": "Whether to disable model invocation for this skill"
+    },
+    "user-invocable": {
+      "type": "boolean",
+      "description": "Whether the skill can be invoked directly by users"
+    },
+    "allowed-tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of tools the skill is allowed to use"
+    },
+    "model": {
+      "type": "string",
+      "description": "Model to use for this skill"
+    }
+  },
+  "additionalProperties": false
+}

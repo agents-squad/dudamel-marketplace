@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://dudamel.dev/schemas/bundle.schema.json",
+  "title": "Bundle",
+  "description": "Schema for bundle.yaml in the Dudamel Agents Marketplace",
+  "type": "object",
+  "required": ["name", "description", "version", "includes"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Display name of the bundle"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the bundle"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+$",
+      "description": "Semver-simplified version (MAJOR.MINOR)"
+    },
+    "includes": {
+      "type": "object",
+      "properties": {
+        "agents": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Agent slugs included in the bundle"
+        },
+        "skills": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Skill names included in the bundle"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

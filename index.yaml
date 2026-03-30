@@ -1,0 +1,59 @@
+# Dudamel Agents Marketplace — Index
+# This file lists all available agents, skills, and bundles.
+
+agents:
+  - slug: android-dev
+    name: Android-Dev
+    version: "0.2"
+  - slug: architecture
+    name: Architecture
+    version: "0.2"
+  - slug: backend
+    name: Backend
+    version: "0.2"
+  - slug: compliance
+    name: Compliance
+    version: "0.2"
+  - slug: customer-success
+    name: Customer Success
+    version: "0.2"
+  - slug: data-analyst
+    name: Data Analyst
+    version: "0.2"
+  - slug: devops
+    name: Devops
+    version: "0.2"
+  - slug: fraud-analyst
+    name: Fraud Analyst
+    version: "0.2"
+  - slug: growth
+    name: Growth
+    version: "0.2"
+  - slug: ios-dev
+    name: iOS-Dev
+    version: "0.1"
+  - slug: project-manager
+    name: Project Manager
+    version: "0.1"
+  - slug: quality-assurance
+    name: Quality Assurance
+    version: "0.1"
+  - slug: quality-automation
+    name: Quality Automation
+    version: "0.1"
+  - slug: release-manager
+    name: Release Manager
+    version: "0.1"
+  - slug: security
+    name: Security
+    version: "0.1"
+  - slug: tech-lead
+    name: Tech Lead
+    version: "0.1"
+  - slug: ux-designer
+    name: UX Designer
+    version: "0.1"
+
+skills: []
+
+bundles: []
