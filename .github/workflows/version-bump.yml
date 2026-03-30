@@ -24,8 +24,10 @@ jobs:
       - name: Make scripts executable
         run: chmod +x .github/scripts/*.sh
 
+      # --- Agents ---
+
       - name: Detect changed agents
-        id: detect
+        id: detect-agents
         run: |
           agents=$(.github/scripts/detect-changed-agents.sh HEAD~1 HEAD)
           echo "agents=$agents" >> "$GITHUB_OUTPUT"
@@ -36,7 +38,6 @@ jobs:
           fi
 
       - name: Determine bump type
-        if: steps.detect.outputs.agents != ''
         id: bump-type
         run: |
           msg="${{ github.event.head_commit.message }}"
@@ -46,13 +47,13 @@ jobs:
             echo "type=minor" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Bump versions
-        if: steps.detect.outputs.agents != ''
-        id: bump
+      - name: Bump agent versions
+        if: steps.detect-agents.outputs.agents != ''
+        id: bump-agents
         run: |
           tags=""
           summary=""
-          for slug in ${{ steps.detect.outputs.agents }}; do
+          for slug in ${{ steps.detect-agents.outputs.agents }}; do
             current=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
             new=$(.github/scripts/bump-version.sh "$current" "${{ steps.bump-type.outputs.type }}")
             sed -i "s/^version: \"${current}\"/version: \"${new}\"/" "agents/$slug/agent.yaml"
@@ -61,29 +62,68 @@ jobs:
             echo "Bumped $slug: $current → $new"
           done
           echo "tags=$tags" >> "$GITHUB_OUTPUT"
-          echo -e "## Version Bump Summary\n$summary" >> "$GITHUB_STEP_SUMMARY"
+          echo -e "## Agent Version Bumps\n$summary" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Update VERSIONS.md
-        if: steps.detect.outputs.agents != ''
+        if: steps.detect-agents.outputs.agents != ''
         run: |
           description=$(echo "${{ github.event.head_commit.message }}" | head -1)
           .github/scripts/update-versions-md.sh \
             "${{ steps.bump-type.outputs.type }}" \
-            "${{ steps.detect.outputs.agents }}" \
+            "${{ steps.detect-agents.outputs.agents }}" \
             "$description"
 
+      # --- Skills ---
+
+      - name: Detect changed skills
+        id: detect-skills
+        run: |
+          skills=$(.github/scripts/detect-changed-skills.sh HEAD~1 HEAD)
+          echo "skills=$skills" >> "$GITHUB_OUTPUT"
+          if [[ -z "$skills" ]]; then
+            echo "No skills changed — skipping."
+          else
+            echo "Changed skills: $skills"
+          fi
+
+      - name: Bump skill versions
+        if: steps.detect-skills.outputs.skills != ''
+        id: bump-skills
+        run: |
+          tags=""
+          summary=""
+          for name in ${{ steps.detect-skills.outputs.skills }}; do
+            new=$(.github/scripts/bump-skill-version.sh "$name" "${{ steps.bump-type.outputs.type }}" | tail -1)
+            tags="$tags skill/${name}@${new}"
+            summary="$summary\n- ${name}: → ${new}"
+          done
+          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+          echo -e "## Skill Version Bumps\n$summary" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Update SKILL-VERSIONS.md
+        if: steps.detect-skills.outputs.skills != ''
+        run: |
+          description=$(echo "${{ github.event.head_commit.message }}" | head -1)
+          .github/scripts/update-skill-versions-md.sh \
+            "${{ steps.bump-type.outputs.type }}" \
+            "${{ steps.detect-skills.outputs.skills }}" \
+            "$description"
+
+      # --- Commit (unified: agents + skills) ---
+
       - name: Commit and tag
-        if: steps.detect.outputs.agents != ''
+        if: steps.detect-agents.outputs.agents != '' || steps.detect-skills.outputs.skills != ''
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "chore: bump versions [skip ci]
 
-          Agents: ${{ steps.detect.outputs.agents }}
+          Agents: ${{ steps.detect-agents.outputs.agents }}
+          Skills: ${{ steps.detect-skills.outputs.skills }}
           Type: ${{ steps.bump-type.outputs.type }}"
 
-          for tag in ${{ steps.bump.outputs.tags }}; do
+          for tag in ${{ steps.bump-agents.outputs.tags }} ${{ steps.bump-skills.outputs.tags }}; do
             git tag "$tag"
           done
 

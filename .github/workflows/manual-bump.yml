@@ -3,9 +3,16 @@ name: Manual Version Bump
 on:
   workflow_dispatch:
     inputs:
-      agent_slug:
-        description: 'Agent to bump'
+      entity_type:
+        description: 'Entity type to bump'
         required: true
+        type: choice
+        options:
+          - agent
+          - skill
+      agent_slug:
+        description: 'Agent to bump (only when entity_type=agent)'
+        required: false
         type: choice
         options:
           - android-dev
@@ -25,6 +32,10 @@ on:
           - security
           - tech-lead
           - ux-designer
+      skill_name:
+        description: 'Skill name to bump (only when entity_type=skill, e.g. ios-code-review)'
+        required: false
+        type: string
       bump_type:
         description: 'Bump type'
         required: true
@@ -48,15 +59,23 @@ jobs:
       - name: Make scripts executable
         run: chmod +x .github/scripts/*.sh
 
+      # --- Agent bump ---
+
       - name: Validate agent
+        if: inputs.entity_type == 'agent'
         run: |
+          if [[ -z "${{ inputs.agent_slug }}" ]]; then
+            echo "Error: agent_slug is required when entity_type=agent" >&2
+            exit 1
+          fi
           if [[ ! -f "agents/${{ inputs.agent_slug }}/agent.yaml" ]]; then
             echo "Error: agent '${{ inputs.agent_slug }}' not found" >&2
             exit 1
           fi
 
-      - name: Bump version
-        id: bump
+      - name: Bump agent version
+        if: inputs.entity_type == 'agent'
+        id: bump-agent
         run: |
           slug="${{ inputs.agent_slug }}"
           current=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
@@ -65,33 +84,97 @@ jobs:
           echo "current=$current" >> "$GITHUB_OUTPUT"
           echo "new=$new" >> "$GITHUB_OUTPUT"
           echo "tag=${slug}@${new}" >> "$GITHUB_OUTPUT"
+          echo "label=$slug" >> "$GITHUB_OUTPUT"
 
       - name: Update VERSIONS.md
+        if: inputs.entity_type == 'agent'
         run: |
           .github/scripts/update-versions-md.sh \
             "${{ inputs.bump_type }}" \
             "${{ inputs.agent_slug }}" \
             "Manual ${{ inputs.bump_type }} bump of ${{ inputs.agent_slug }}"
 
+      # --- Skill bump ---
+
+      - name: Validate skill
+        if: inputs.entity_type == 'skill'
+        run: |
+          if [[ -z "${{ inputs.skill_name }}" ]]; then
+            echo "Error: skill_name is required when entity_type=skill" >&2
+            exit 1
+          fi
+          if [[ ! -f "skills/${{ inputs.skill_name }}/SKILL.md" ]]; then
+            echo "Error: skill '${{ inputs.skill_name }}' not found" >&2
+            exit 1
+          fi
+
+      - name: Bump skill version
+        if: inputs.entity_type == 'skill'
+        id: bump-skill
+        run: |
+          name="${{ inputs.skill_name }}"
+          current=$(sed -n '/^---$/,/^---$/{ /^version:/{ s/version: *"\(.*\)"/\1/p; } }' "skills/$name/SKILL.md")
+          new=$(.github/scripts/bump-skill-version.sh "$name" "${{ inputs.bump_type }}" | tail -1)
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          echo "new=$new" >> "$GITHUB_OUTPUT"
+          echo "tag=skill/${name}@${new}" >> "$GITHUB_OUTPUT"
+          echo "label=$name" >> "$GITHUB_OUTPUT"
+
+      - name: Update SKILL-VERSIONS.md
+        if: inputs.entity_type == 'skill'
+        run: |
+          .github/scripts/update-skill-versions-md.sh \
+            "${{ inputs.bump_type }}" \
+            "${{ inputs.skill_name }}" \
+            "Manual ${{ inputs.bump_type }} bump of ${{ inputs.skill_name }}"
+
+      # --- Commit and tag ---
+
       - name: Commit and tag
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if [[ "${{ inputs.entity_type }}" == "agent" ]]; then
+            current="${{ steps.bump-agent.outputs.current }}"
+            new="${{ steps.bump-agent.outputs.new }}"
+            tag="${{ steps.bump-agent.outputs.tag }}"
+            label="${{ steps.bump-agent.outputs.label }}"
+          else
+            current="${{ steps.bump-skill.outputs.current }}"
+            new="${{ steps.bump-skill.outputs.new }}"
+            tag="${{ steps.bump-skill.outputs.tag }}"
+            label="${{ steps.bump-skill.outputs.label }}"
+          fi
+
           git add -A
-          git commit -m "chore: bump ${{ inputs.agent_slug }} ${{ steps.bump.outputs.current }} → ${{ steps.bump.outputs.new }} [skip ci]"
-          git tag "${{ steps.bump.outputs.tag }}"
+          git commit -m "chore: bump $label $current → $new [skip ci]"
+          git tag "$tag"
           git push origin main --tags
 
       - name: Job summary
         run: |
+          if [[ "${{ inputs.entity_type }}" == "agent" ]]; then
+            current="${{ steps.bump-agent.outputs.current }}"
+            new="${{ steps.bump-agent.outputs.new }}"
+            tag="${{ steps.bump-agent.outputs.tag }}"
+            label="${{ steps.bump-agent.outputs.label }}"
+          else
+            current="${{ steps.bump-skill.outputs.current }}"
+            new="${{ steps.bump-skill.outputs.new }}"
+            tag="${{ steps.bump-skill.outputs.tag }}"
+            label="${{ steps.bump-skill.outputs.label }}"
+          fi
+
           {
             echo "## Manual Version Bump"
             echo ""
             echo "| Field | Value |"
             echo "|-------|-------|"
-            echo "| Agent | \`${{ inputs.agent_slug }}\` |"
-            echo "| Previous | ${{ steps.bump.outputs.current }} |"
-            echo "| New | **${{ steps.bump.outputs.new }}** |"
-            echo "| Tag | \`${{ steps.bump.outputs.tag }}\` |"
-            echo "| Type | ${{ inputs.bump_type }} |"
+            echo "| Type | \`${{ inputs.entity_type }}\` |"
+            echo "| Name | \`$label\` |"
+            echo "| Previous | $current |"
+            echo "| New | **$new** |"
+            echo "| Tag | \`$tag\` |"
+            echo "| Bump | ${{ inputs.bump_type }} |"
           } >> "$GITHUB_STEP_SUMMARY"

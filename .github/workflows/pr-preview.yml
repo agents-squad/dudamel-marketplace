@@ -21,17 +21,22 @@ jobs:
         run: chmod +x .github/scripts/*.sh
 
       - name: Detect changed agents
-        id: detect
+        id: detect-agents
         run: |
           base=$(git merge-base origin/main HEAD)
           agents=$(.github/scripts/detect-changed-agents.sh "$base" HEAD)
           echo "agents=$agents" >> "$GITHUB_OUTPUT"
 
+      - name: Detect changed skills
+        id: detect-skills
+        run: |
+          base=$(git merge-base origin/main HEAD)
+          skills=$(.github/scripts/detect-changed-skills.sh "$base" HEAD)
+          echo "skills=$skills" >> "$GITHUB_OUTPUT"
+
       - name: Determine bump type
-        if: steps.detect.outputs.agents != ''
         id: bump-type
         run: |
-          # Check all PR commit messages for breaking changes
           base=$(git merge-base origin/main HEAD)
           if git log --format='%s' "$base"..HEAD | grep -qiE '(BREAKING:|major:)'; then
             echo "type=major" >> "$GITHUB_OUTPUT"
@@ -40,7 +45,7 @@ jobs:
           fi
 
       - name: Build preview table
-        if: steps.detect.outputs.agents != ''
+        if: steps.detect-agents.outputs.agents != '' || steps.detect-skills.outputs.skills != ''
         id: table
         run: |
           {
@@ -49,21 +54,42 @@ jobs:
             echo "## Version Preview"
             echo ""
             echo "This PR will trigger the following version bumps on merge:"
-            echo ""
-            echo "| Agent | Current | New | Tag |"
-            echo "|-------|---------|-----|-----|"
-            for slug in ${{ steps.detect.outputs.agents }}; do
-              current=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
-              new=$(.github/scripts/bump-version.sh "$current" "${{ steps.bump-type.outputs.type }}")
-              echo "| \`$slug\` | $current | **$new** | \`${slug}@${new}\` |"
-            done
+
+            # Agent table
+            if [[ -n "${{ steps.detect-agents.outputs.agents }}" ]]; then
+              echo ""
+              echo "### Agents"
+              echo ""
+              echo "| Agent | Current | New | Tag |"
+              echo "|-------|---------|-----|-----|"
+              for slug in ${{ steps.detect-agents.outputs.agents }}; do
+                current=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
+                new=$(.github/scripts/bump-version.sh "$current" "${{ steps.bump-type.outputs.type }}")
+                echo "| \`$slug\` | $current | **$new** | \`${slug}@${new}\` |"
+              done
+            fi
+
+            # Skill table
+            if [[ -n "${{ steps.detect-skills.outputs.skills }}" ]]; then
+              echo ""
+              echo "### Skills"
+              echo ""
+              echo "| Skill | Current | New | Tag |"
+              echo "|-------|---------|-----|-----|"
+              for name in ${{ steps.detect-skills.outputs.skills }}; do
+                current=$(sed -n '/^---$/,/^---$/{ /^version:/{ s/version: *"\(.*\)"/\1/p; } }' "skills/$name/SKILL.md")
+                new=$(.github/scripts/bump-version.sh "$current" "${{ steps.bump-type.outputs.type }}")
+                echo "| \`$name\` | $current | **$new** | \`skill/${name}@${new}\` |"
+              done
+            fi
+
             echo ""
             echo "Bump type: **${{ steps.bump-type.outputs.type }}**"
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
       - name: Comment on PR
-        if: steps.detect.outputs.agents != ''
+        if: steps.detect-agents.outputs.agents != '' || steps.detect-skills.outputs.skills != ''
         uses: actions/github-script@v7
         with:
           script: |
@@ -95,12 +121,12 @@ jobs:
             }
 
       - name: Comment no changes
-        if: steps.detect.outputs.agents == ''
+        if: steps.detect-agents.outputs.agents == '' && steps.detect-skills.outputs.skills == ''
         uses: actions/github-script@v7
         with:
           script: |
             const marker = '<!-- version-preview -->';
-            const body = `${marker}\n## Version Preview\n\nNo agent changes detected in this PR. No version bumps will occur.`;
+            const body = `${marker}\n## Version Preview\n\nNo agent or skill changes detected in this PR. No version bumps will occur.`;
 
             const { data: comments } = await github.rest.issues.listComments({
               owner: context.repo.owner,
