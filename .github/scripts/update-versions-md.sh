@@ -12,7 +12,7 @@ TODAY=$(date +%Y-%m-%d)
 # Build agent list with versions (read from already-updated agent.yaml)
 agent_list=""
 for slug in $AGENTS; do
-  version=$(grep '^version:' "$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
+  version=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
   if [[ -n "$agent_list" ]]; then
     agent_list="$agent_list, $slug ($version)"
   else

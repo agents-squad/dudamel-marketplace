@@ -53,7 +53,7 @@ jobs:
             echo "| Agent | Current | New | Tag |"
             echo "|-------|---------|-----|-----|"
             for slug in ${{ steps.detect.outputs.agents }}; do
-              current=$(grep '^version:' "$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
+              current=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
               new=$(.github/scripts/bump-version.sh "$current" "${{ steps.bump-type.outputs.type }}")
               echo "| \`$slug\` | $current | **$new** | \`${slug}@${new}\` |"
             done

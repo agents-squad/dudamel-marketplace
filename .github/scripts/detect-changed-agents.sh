@@ -8,17 +8,15 @@ TO_REF="${2:?Usage: detect-changed-agents.sh <from-ref> <to-ref>}"
 
 changed_agents=()
 
-# Get top-level directories from changed files
+# Get agent directories from changed files under agents/
 dirs=$(git diff --name-only "$FROM_REF" "$TO_REF" \
-  | grep '/' \
-  | cut -d'/' -f1 \
+  | grep '^agents/' \
+  | cut -d'/' -f2 \
   | sort -u)
 
 for dir in $dirs; do
-  # Skip hidden directories and non-agent directories
-  [[ "$dir" == .* ]] && continue
   # Only include if the directory has an agent.yaml
-  if [[ -f "$dir/agent.yaml" ]]; then
+  if [[ -f "agents/$dir/agent.yaml" ]]; then
     changed_agents+=("$dir")
   fi
 done

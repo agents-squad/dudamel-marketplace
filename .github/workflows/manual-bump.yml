@@ -50,7 +50,7 @@ jobs:
 
       - name: Validate agent
         run: |
-          if [[ ! -f "${{ inputs.agent_slug }}/agent.yaml" ]]; then
+          if [[ ! -f "agents/${{ inputs.agent_slug }}/agent.yaml" ]]; then
             echo "Error: agent '${{ inputs.agent_slug }}' not found" >&2
             exit 1
           fi
@@ -59,9 +59,9 @@ jobs:
         id: bump
         run: |
           slug="${{ inputs.agent_slug }}"
-          current=$(grep '^version:' "$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
+          current=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
           new=$(.github/scripts/bump-version.sh "$current" "${{ inputs.bump_type }}")
-          sed -i "s/^version: \"${current}\"/version: \"${new}\"/" "$slug/agent.yaml"
+          sed -i "s/^version: \"${current}\"/version: \"${new}\"/" "agents/$slug/agent.yaml"
           echo "current=$current" >> "$GITHUB_OUTPUT"
           echo "new=$new" >> "$GITHUB_OUTPUT"
           echo "tag=${slug}@${new}" >> "$GITHUB_OUTPUT"

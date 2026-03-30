@@ -53,9 +53,9 @@ jobs:
           tags=""
           summary=""
           for slug in ${{ steps.detect.outputs.agents }}; do
-            current=$(grep '^version:' "$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
+            current=$(grep '^version:' "agents/$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
             new=$(.github/scripts/bump-version.sh "$current" "${{ steps.bump-type.outputs.type }}")
-            sed -i "s/^version: \"${current}\"/version: \"${new}\"/" "$slug/agent.yaml"
+            sed -i "s/^version: \"${current}\"/version: \"${new}\"/" "agents/$slug/agent.yaml"
             tags="$tags ${slug}@${new}"
             summary="$summary\n- ${slug}: ${current} → ${new}"
             echo "Bumped $slug: $current → $new"
