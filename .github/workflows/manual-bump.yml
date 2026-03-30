@@ -1,0 +1,97 @@
+name: Manual Version Bump
+
+on:
+  workflow_dispatch:
+    inputs:
+      agent_slug:
+        description: 'Agent to bump'
+        required: true
+        type: choice
+        options:
+          - android-dev
+          - architecture
+          - backend
+          - compliance
+          - customer-success
+          - data-analyst
+          - devops
+          - fraud-analyst
+          - growth
+          - ios-dev
+          - project-manager
+          - quality-assurance
+          - quality-automation
+          - release-manager
+          - security
+          - tech-lead
+          - ux-designer
+      bump_type:
+        description: 'Bump type'
+        required: true
+        type: choice
+        options:
+          - minor
+          - major
+
+permissions:
+  contents: write
+
+jobs:
+  manual-bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Make scripts executable
+        run: chmod +x .github/scripts/*.sh
+
+      - name: Validate agent
+        run: |
+          if [[ ! -f "${{ inputs.agent_slug }}/agent.yaml" ]]; then
+            echo "Error: agent '${{ inputs.agent_slug }}' not found" >&2
+            exit 1
+          fi
+
+      - name: Bump version
+        id: bump
+        run: |
+          slug="${{ inputs.agent_slug }}"
+          current=$(grep '^version:' "$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
+          new=$(.github/scripts/bump-version.sh "$current" "${{ inputs.bump_type }}")
+          sed -i "s/^version: \"${current}\"/version: \"${new}\"/" "$slug/agent.yaml"
+          echo "current=$current" >> "$GITHUB_OUTPUT"
+          echo "new=$new" >> "$GITHUB_OUTPUT"
+          echo "tag=${slug}@${new}" >> "$GITHUB_OUTPUT"
+
+      - name: Update VERSIONS.md
+        run: |
+          .github/scripts/update-versions-md.sh \
+            "${{ inputs.bump_type }}" \
+            "${{ inputs.agent_slug }}" \
+            "Manual ${{ inputs.bump_type }} bump of ${{ inputs.agent_slug }}"
+
+      - name: Commit and tag
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: bump ${{ inputs.agent_slug }} ${{ steps.bump.outputs.current }} → ${{ steps.bump.outputs.new }} [skip ci]"
+          git tag "${{ steps.bump.outputs.tag }}"
+          git push origin main --tags
+
+      - name: Job summary
+        run: |
+          {
+            echo "## Manual Version Bump"
+            echo ""
+            echo "| Field | Value |"
+            echo "|-------|-------|"
+            echo "| Agent | \`${{ inputs.agent_slug }}\` |"
+            echo "| Previous | ${{ steps.bump.outputs.current }} |"
+            echo "| New | **${{ steps.bump.outputs.new }}** |"
+            echo "| Tag | \`${{ steps.bump.outputs.tag }}\` |"
+            echo "| Type | ${{ inputs.bump_type }} |"
+          } >> "$GITHUB_STEP_SUMMARY"

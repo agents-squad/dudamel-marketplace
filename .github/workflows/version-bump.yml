@@ -1,0 +1,90 @@
+name: Auto Version Bump
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: version-bump
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  version-bump:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Make scripts executable
+        run: chmod +x .github/scripts/*.sh
+
+      - name: Detect changed agents
+        id: detect
+        run: |
+          agents=$(.github/scripts/detect-changed-agents.sh HEAD~1 HEAD)
+          echo "agents=$agents" >> "$GITHUB_OUTPUT"
+          if [[ -z "$agents" ]]; then
+            echo "No agents changed — skipping."
+          else
+            echo "Changed agents: $agents"
+          fi
+
+      - name: Determine bump type
+        if: steps.detect.outputs.agents != ''
+        id: bump-type
+        run: |
+          msg="${{ github.event.head_commit.message }}"
+          if echo "$msg" | grep -qiE '(BREAKING:|major:)'; then
+            echo "type=major" >> "$GITHUB_OUTPUT"
+          else
+            echo "type=minor" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Bump versions
+        if: steps.detect.outputs.agents != ''
+        id: bump
+        run: |
+          tags=""
+          summary=""
+          for slug in ${{ steps.detect.outputs.agents }}; do
+            current=$(grep '^version:' "$slug/agent.yaml" | sed 's/version: *"\(.*\)"/\1/')
+            new=$(.github/scripts/bump-version.sh "$current" "${{ steps.bump-type.outputs.type }}")
+            sed -i "s/^version: \"${current}\"/version: \"${new}\"/" "$slug/agent.yaml"
+            tags="$tags ${slug}@${new}"
+            summary="$summary\n- ${slug}: ${current} → ${new}"
+            echo "Bumped $slug: $current → $new"
+          done
+          echo "tags=$tags" >> "$GITHUB_OUTPUT"
+          echo -e "## Version Bump Summary\n$summary" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Update VERSIONS.md
+        if: steps.detect.outputs.agents != ''
+        run: |
+          description=$(echo "${{ github.event.head_commit.message }}" | head -1)
+          .github/scripts/update-versions-md.sh \
+            "${{ steps.bump-type.outputs.type }}" \
+            "${{ steps.detect.outputs.agents }}" \
+            "$description"
+
+      - name: Commit and tag
+        if: steps.detect.outputs.agents != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: bump versions [skip ci]
+
+          Agents: ${{ steps.detect.outputs.agents }}
+          Type: ${{ steps.bump-type.outputs.type }}"
+
+          for tag in ${{ steps.bump.outputs.tags }}; do
+            git tag "$tag"
+          done
+
+          git push origin main --tags
