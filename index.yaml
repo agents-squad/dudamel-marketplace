@@ -268,4 +268,55 @@ skills:
     description: Investigación de fraude — análisis de transacciones, chargebacks, patrones, acciones preventivas
     version: "0.1"
 
-bundles: []
+bundles:
+  - slug: android-dev
+    name: "Android Dev Bundle"
+    version: "0.1"
+  - slug: architecture
+    name: "Architecture Bundle"
+    version: "0.1"
+  - slug: backend
+    name: "Backend Bundle"
+    version: "0.1"
+  - slug: compliance
+    name: "Compliance Bundle"
+    version: "0.1"
+  - slug: customer-success
+    name: "Customer Success Bundle"
+    version: "0.1"
+  - slug: data-analyst
+    name: "Data Analyst Bundle"
+    version: "0.1"
+  - slug: devops
+    name: "DevOps Bundle"
+    version: "0.1"
+  - slug: fraud-analyst
+    name: "Fraud Analyst Bundle"
+    version: "0.1"
+  - slug: growth
+    name: "Growth Bundle"
+    version: "0.1"
+  - slug: ios-dev
+    name: "iOS Dev Bundle"
+    version: "0.1"
+  - slug: project-manager
+    name: "Project Manager Bundle"
+    version: "0.1"
+  - slug: quality-assurance
+    name: "Quality Assurance Bundle"
+    version: "0.1"
+  - slug: quality-automation
+    name: "Quality Automation Bundle"
+    version: "0.1"
+  - slug: release-manager
+    name: "Release Manager Bundle"
+    version: "0.1"
+  - slug: security
+    name: "Security Bundle"
+    version: "0.1"
+  - slug: tech-lead
+    name: "Tech Lead Bundle"
+    version: "0.1"
+  - slug: ux-designer
+    name: "UX Designer Bundle"
+    version: "0.1"
