@@ -272,51 +272,179 @@ bundles:
   - slug: android-dev
     name: "Android Dev Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - android-dev
+      skills:
+        - code-review
+        - qa-test-plan
+        - qa-bug-triage
+        - qa-test-automation
+        - ux-design-system
   - slug: architecture
     name: "Architecture Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - architecture
+      skills:
+        - architecture-system-design
+        - architecture-adr
+        - architecture-api-design
+        - architecture-data-modeling
+        - architecture-trade-off-analysis
   - slug: backend
     name: "Backend Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - backend
+      skills:
+        - backend-api-implementation
+        - backend-microservices
+        - architecture-api-design
+        - architecture-data-modeling
+        - devops-ci-cd
   - slug: compliance
     name: "Compliance Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - compliance
+      skills:
+        - compliance-regulatory-review
+        - compliance-audit-preparation
+        - security-architecture-review
   - slug: customer-success
     name: "Customer Success Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - customer-success
+      skills:
+        - data-metric-definition
+        - ux-user-research
   - slug: data-analyst
     name: "Data Analyst Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - data-analyst
+      skills:
+        - data-sql-analysis
+        - data-metric-definition
   - slug: devops
     name: "DevOps Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - devops
+      skills:
+        - devops-ci-cd
+        - devops-infrastructure
+        - devops-observability
+        - devops-incident-response
+        - security-vulnerability-management
   - slug: fraud-analyst
     name: "Fraud Analyst Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - fraud-analyst
+      skills:
+        - fraud-rule-design
+        - fraud-investigation
+        - compliance-regulatory-review
+        - data-sql-analysis
   - slug: growth
     name: "Growth Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - growth
+      skills:
+        - growth-experiment-design
+        - data-sql-analysis
+        - data-metric-definition
   - slug: ios-dev
     name: "iOS Dev Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - ios-dev
+      skills:
+        - code-review
+        - qa-test-plan
+        - qa-bug-triage
+        - qa-test-automation
+        - ux-design-system
   - slug: project-manager
     name: "Project Manager Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - project-manager
+      skills:
+        - product-prd-writing
+        - product-user-story
+        - architecture-trade-off-analysis
   - slug: quality-assurance
     name: "Quality Assurance Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - quality-assurance
+      skills:
+        - qa-test-plan
+        - qa-bug-triage
+        - qa-test-automation
   - slug: quality-automation
     name: "Quality Automation Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - quality-automation
+      skills:
+        - qa-test-automation
+        - qa-test-plan
+        - qa-bug-triage
   - slug: release-manager
     name: "Release Manager Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - release-manager
+      skills:
+        - product-release-management
+        - devops-ci-cd
   - slug: security
     name: "Security Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - security
+      skills:
+        - security-threat-modeling
+        - security-secure-code-review
+        - security-vulnerability-management
+        - security-architecture-review
   - slug: tech-lead
     name: "Tech Lead Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - tech-lead
+      skills:
+        - code-review
+        - code-tech-debt
+        - architecture-adr
+        - architecture-trade-off-analysis
   - slug: ux-designer
     name: "UX Designer Bundle"
     version: "0.1"
+    includes:
+      agents:
+        - ux-designer
+      skills:
+        - ux-user-research
+        - ux-design-system
