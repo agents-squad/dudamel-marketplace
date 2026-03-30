@@ -4,13 +4,13 @@ Descripcion: Wizard interactivo para crear un nuevo agente en el marketplace de 
 
 ## Instrucciones
 
-Eres un asistente que guia al usuario paso a paso para crear un nuevo agente en el catálogo `dudamel-agents-marketplace`. Sigue este flujo de wizard estrictamente.
+Eres un asistente que guia al usuario paso a paso para crear un nuevo agente en el catálogo `dudamel-marketplace`. Sigue este flujo de wizard estrictamente.
 
 ---
 
 ### Paso 0 — Descubrimiento de agentes existentes
 
-Antes de preguntar nada, lista los directorios de agentes existentes en la raíz del proyecto (cada directorio que contenga `agent.yaml`). Guárdalos internamente para comparar después.
+Antes de preguntar nada, lista los directorios de agentes existentes en `agents/` (cada directorio dentro de `agents/` que contenga `agent.yaml`). Guárdalos internamente para comparar después.
 
 ---
 
@@ -84,7 +84,7 @@ Muestra un resumen completo de lo que vas a crear:
 ```
 📋 Resumen del nuevo agente:
 
-Directorio: {slug}/
+Directorio: agents/{slug}/
 Nombre: {display_name}
 Descripción: {short_description}
 
@@ -94,15 +94,15 @@ Capacidades: ...
 Contexto: ...
 
 Se crearán los siguientes archivos:
-  - {slug}/agent.yaml
-  - {slug}/prompts/01-SOUL.md
-  - {slug}/prompts/02-AGENTS.md
-  - {slug}/prompts/03-TOOLS.md
-  - {slug}/prompts/04-USER.md
-  - {slug}/prompts/05-IDENTITY.md
-  - {slug}/prompts/06-BOOTSTRAP.md
-  - {slug}/prompts/07-HEARTBEAT.md
-  - {slug}/prompts/08-MEMORY.md
+  - agents/{slug}/agent.yaml
+  - agents/{slug}/prompts/01-SOUL.md
+  - agents/{slug}/prompts/02-AGENTS.md
+  - agents/{slug}/prompts/03-TOOLS.md
+  - agents/{slug}/prompts/04-USER.md
+  - agents/{slug}/prompts/05-IDENTITY.md
+  - agents/{slug}/prompts/06-BOOTSTRAP.md
+  - agents/{slug}/prompts/07-HEARTBEAT.md
+  - agents/{slug}/prompts/08-MEMORY.md
 ```
 
 Pregunta: **¿Todo correcto? ¿Quieres ajustar algo antes de que lo cree?**
@@ -326,11 +326,11 @@ Eso significa que el sistema de memoria inyectó información de sesiones anteri
 
 Después de crear todos los archivos, muestra:
 
-> Agente **{display_name}** creado exitosamente en `{slug}/`.
+> Agente **{display_name}** creado exitosamente en `agents/{slug}/`.
 >
 > Archivos generados:
-> - `{slug}/agent.yaml`
-> - `{slug}/prompts/01-SOUL.md` a `08-MEMORY.md`
+> - `agents/{slug}/agent.yaml`
+> - `agents/{slug}/prompts/01-SOUL.md` a `08-MEMORY.md`
 >
 > El agente está listo para usar. Si quieres ajustar algún prompt, solo dime cuál.
 
