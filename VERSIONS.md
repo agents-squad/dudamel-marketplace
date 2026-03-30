@@ -10,6 +10,12 @@
 
 ## Historial
 
+### 0.2 — Agregar sección de limitaciones (2026-03-29)
+
+Se agrega sección "Limitaciones" al prompt 01-SOUL.md de 9 agentes, explicitando qué puede y qué no puede hacer cada agente (acceso a sistemas externos, ejecución de código, etc.).
+
+Agentes: android-dev, architecture, backend, compliance, customer-success, data-analyst, devops, fraud-analyst, growth
+
 ### 0.1 — Versión inicial genérica (2026-03-29)
 
 Todos los agentes: primera versión con contexto genérico (sin info de empresa específica). Prompts con placeholders para personalización.

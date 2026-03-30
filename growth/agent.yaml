@@ -1,5 +1,5 @@
 name: Growth
-version: "0.1"
+version: "0.2"
 mcpServers:
   - context-repo-mcp
 contextRepos: []
