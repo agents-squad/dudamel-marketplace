@@ -5,3 +5,8 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - product-release-management
+  complementary:
+    - devops-ci-cd

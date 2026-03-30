@@ -5,3 +5,7 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - ux-user-research
+    - ux-design-system

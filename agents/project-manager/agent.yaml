@@ -5,3 +5,9 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - product-prd-writing
+    - product-user-story
+  complementary:
+    - architecture-trade-off-analysis

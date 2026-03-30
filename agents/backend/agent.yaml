@@ -5,3 +5,11 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - backend-api-implementation
+    - backend-microservices
+  complementary:
+    - architecture-api-design
+    - architecture-data-modeling
+    - devops-ci-cd

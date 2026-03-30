@@ -5,3 +5,9 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - compliance-regulatory-review
+    - compliance-audit-preparation
+  complementary:
+    - security-architecture-review

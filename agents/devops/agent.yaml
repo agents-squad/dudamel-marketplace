@@ -5,3 +5,11 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - devops-ci-cd
+    - devops-infrastructure
+    - devops-observability
+    - devops-incident-response
+  complementary:
+    - security-vulnerability-management

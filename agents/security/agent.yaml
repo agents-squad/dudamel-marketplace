@@ -5,3 +5,9 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - security-threat-modeling
+    - security-secure-code-review
+    - security-vulnerability-management
+    - security-architecture-review

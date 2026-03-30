@@ -5,3 +5,7 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  complementary:
+    - data-metric-definition
+    - ux-user-research

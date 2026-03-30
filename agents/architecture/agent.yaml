@@ -5,3 +5,10 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - architecture-system-design
+    - architecture-adr
+    - architecture-api-design
+    - architecture-data-modeling
+    - architecture-trade-off-analysis

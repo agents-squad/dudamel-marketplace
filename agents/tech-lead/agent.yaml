@@ -5,3 +5,10 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - code-review
+    - code-tech-debt
+  complementary:
+    - architecture-adr
+    - architecture-trade-off-analysis

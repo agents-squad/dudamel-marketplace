@@ -5,3 +5,9 @@ mcpServers:
 contextRepos: []
 cliConfig:
   dangerouslySkipPermissions: true
+skills:
+  primary:
+    - growth-experiment-design
+  complementary:
+    - data-sql-analysis
+    - data-metric-definition
