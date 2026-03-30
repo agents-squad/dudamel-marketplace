@@ -54,6 +54,114 @@ agents:
     name: UX Designer
     version: "0.1"
 
-skills: []
+skills:
+  # code domain
+  - name: code-review
+    description: Revisión estructurada de código por capas — correctitud, seguridad, performance, mantenibilidad, estilo
+    version: "0.1"
+  - name: code-tech-debt
+    description: Identificación, clasificación y plan de reducción de deuda técnica
+    version: "0.1"
+  # architecture domain
+  - name: architecture-system-design
+    description: Diseño de sistemas — diagramas, componentes, flujos de datos, patrones sync/async, resiliencia
+    version: "0.1"
+  - name: architecture-adr
+    description: Architecture Decision Records con formato estándar — contexto, decisión, consecuencias, alternativas
+    version: "0.1"
+  - name: architecture-api-design
+    description: Diseño de APIs RESTful, GraphQL o gRPC con versionado, paginación, errores, auth y docs OpenAPI
+    version: "0.1"
+  - name: architecture-data-modeling
+    description: Esquemas de datos relacionales/NoSQL, índices, constraints, patrones de acceso, caching
+    version: "0.1"
+  - name: architecture-trade-off-analysis
+    description: Evaluación estructurada de opciones — tabla comparativa con criterios, scoring, pros/contras, recomendación
+    version: "0.1"
+  # backend domain
+  - name: backend-api-implementation
+    description: Implementación de APIs — auth JWT/OAuth2, rate limiting, paginación, migraciones reversibles, Swagger
+    version: "0.1"
+  - name: backend-microservices
+    description: Patrones de microservicios — saga, event sourcing, CQRS, comunicación async, circuit breaker
+    version: "0.1"
+  # devops domain
+  - name: devops-ci-cd
+    description: Pipelines CI/CD con GitHub Actions — lint, test, build, deploy, quality gates, rollback automático
+    version: "0.1"
+  - name: devops-infrastructure
+    description: IaC con Terraform, Docker, Kubernetes, Helm — networking, seguridad, costos, rollout/rollback
+    version: "0.1"
+  - name: devops-observability
+    description: Métricas, logs estructurados, traces con OpenTelemetry — SLIs/SLOs, alertas, dashboards
+    version: "0.1"
+  - name: devops-incident-response
+    description: Triage de incidentes, mitigación (rollback, flag off, scaling), comunicación, postmortem blameless
+    version: "0.1"
+  # security domain
+  - name: security-threat-modeling
+    description: Modelado de amenazas con STRIDE y DFD — trust boundaries, clasificación por probabilidad/impacto
+    version: "0.1"
+  - name: security-secure-code-review
+    description: Revisión OWASP Top 10 — injection, broken auth, data exposure. Severidad Critical/High/Medium/Low
+    version: "0.1"
+  - name: security-vulnerability-management
+    description: Triage CVSS + contexto negocio — SLAs Critical 24h, High 72h, Medium sprint, Low backlog
+    version: "0.1"
+  - name: security-architecture-review
+    description: Evaluación de auth, encryption, segmentación de red, gestión de secretos (Vault)
+    version: "0.1"
+  # qa domain
+  - name: qa-test-plan
+    description: Test plans con criterios entrada/salida, matrices de cobertura, test cases priorizados por riesgo
+    version: "0.1"
+  - name: qa-bug-triage
+    description: Clasificación blocker/critical/major/minor, reporte con repro steps, expected vs actual, workarounds
+    version: "0.1"
+  - name: qa-test-automation
+    description: Pirámide de testing (unit > integration > e2e), Page Object Model, test data management, CI integration
+    version: "0.1"
+  # product domain
+  - name: product-prd-writing
+    description: PRDs — contexto, problema, solución, scope, métricas de éxito, criterios de aceptación
+    version: "0.1"
+  - name: product-user-story
+    description: User stories "Como [usuario], quiero [acción], para [beneficio]" con acceptance criteria numerados
+    version: "0.1"
+  - name: product-release-management
+    description: Release planning, go/no-go checklists, feature flag rollout, rollback plans, changelog
+    version: "0.1"
+  # data domain
+  - name: data-sql-analysis
+    description: Queries SQL optimizados (PostgreSQL) — CTEs, EXPLAIN ANALYZE, funnels, cohortes, data quality
+    version: "0.1"
+  - name: data-metric-definition
+    description: Definición formal de métricas — nombre, fórmula, fuente, granularidad, umbrales, query SQL
+    version: "0.1"
+  # growth domain
+  - name: growth-experiment-design
+    description: Diseño de A/B tests — hipótesis, sample size, duración, métricas primarias/guardrail, criterios ship/kill
+    version: "0.1"
+  # ux domain
+  - name: ux-user-research
+    description: Investigación de usuarios — entrevistas, encuestas, journey maps, personas. Síntesis accionable
+    version: "0.1"
+  - name: ux-design-system
+    description: Gestión del design system — componentes, tokens, guías de estilo, variantes, estados, accesibilidad
+    version: "0.1"
+  # compliance domain
+  - name: compliance-regulatory-review
+    description: Evaluación de features contra regulaciones financieras (KYC/AML, PCI-DSS, protección de datos)
+    version: "0.1"
+  - name: compliance-audit-preparation
+    description: Preparación de auditorías — checklist de controles, evidencia, readiness, gaps y remediación
+    version: "0.1"
+  # fraud domain
+  - name: fraud-rule-design
+    description: Diseño de reglas de detección — umbrales, velocity checks, estimación TP/FP, rollout en shadow mode
+    version: "0.1"
+  - name: fraud-investigation
+    description: Investigación de fraude — análisis de transacciones, chargebacks, patrones, acciones preventivas
+    version: "0.1"
 
 bundles: []
