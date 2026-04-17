@@ -10,6 +10,10 @@
 
 ## Historial
 
+### minor bump — chore: remove bootstrap, heartbeat, and memory prompt files from all agents (2026-04-17)
+
+Agentes: android-dev (0.3), architecture (0.3), backend (0.3), compliance (0.3), customer-success (0.3), data-analyst (0.3), devops (0.3), fraud-analyst (0.3), growth (0.3), ios-dev (0.2), project-manager (0.2), quality-assurance (0.2), quality-automation (0.2), release-manager (0.2), security (0.2), tech-lead (0.2), ux-designer (0.2)
+
 ### 0.2 — Agregar sección de limitaciones (2026-03-29)
 
 Se agrega sección "Limitaciones" al prompt 01-SOUL.md de 9 agentes, explicitando qué puede y qué no puede hacer cada agente (acceso a sistemas externos, ejecución de código, etc.).

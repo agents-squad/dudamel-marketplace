@@ -1,5 +1,5 @@
 name: Backend
-version: "0.2"
+version: "0.3"
 mcpServers:
   - context-repo-mcp
 contextRepos: []
